@@ -1,11 +1,20 @@
+import styles from '@/styles/Home.module.css'
+import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-
+import { useEffect, useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+const [productinfo , setProductInfo] = useState([])
+
+  useEffect(() => {
+    fetch("/api/products")
+    .then (response => response.json()) 
+    .then(json => setProductInfo(json));
+  }, []);
+  console.log({productinfo})
   return (
     <div className='p-4'>
       <div>
