@@ -1,9 +1,12 @@
 
 import initMongoose from "@/lib/mongoose"
 import Product from "@/models/products";
-const  handler = async (req , res) => {
- await initMongoose();
-    res.json( await Product.find().exec())
+
+export async function findAllProducts () {
+    return Product.find().exec();
 }
 
-export default handler
+export default async function handler(req, res){
+    await initMongoose()
+    res.json(await findAllProducts())
+}
