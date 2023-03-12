@@ -16,7 +16,13 @@ const addProduct = (id) => {
   setProductInfos(prev => [...prev,id])
 }
 const removeProduct = (id) => {
-  
+  const pos = selectedProducts.indexOf(id);
+  if(pos!=-1){
+    
+    setSelectedProducts(prev => {
+        return  prev.filter((value,index) => index!== pos );
+    });
+  }
 }
 
 
@@ -47,6 +53,10 @@ const removeProduct = (id) => {
           </div>
         </div>
       ))}
+
+
+
+      
     </Layout>
   )
 }
