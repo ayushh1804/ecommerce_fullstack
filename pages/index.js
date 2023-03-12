@@ -28,7 +28,7 @@ export default function Home({products}) {
 
   return (
   <Layout>
-      <input value={phrase} onChange={e => setPhrase(e.target.value)} type="text" placeholder="Search for products..." className='bg-gray-100 py-2 px-4 w-full rounded-xl' />
+      <input value={phrase} onChange={e => setPhrase(e.target.value)} type="text" placeholder="Search for products..."  className='bg-gray-100  py-2 px-4 w-full rounded-xl' />
       <div>
         {categoriesName.map(categoryName => (
           <div key={categoryName}>
