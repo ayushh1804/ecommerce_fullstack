@@ -10,7 +10,7 @@ const Footer = () => {
     const {selectedProducts} = useContext(ProductsContext);
   
     return (
-        <footer className='sticky bottom-0 bg-white w-full p-5 flex border-t border-gray-200 justify-center space-x-12'>
+        <footer className='relative bottom-0 bg-white w-full mt-16 flex border-t border-gray-200 justify-center space-x-12'>
             <Link href={'/'}>
             <span className={(path === '/' ? "text-emerald-500 flex flex-col" : '')+ ' justify-center items-center'}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

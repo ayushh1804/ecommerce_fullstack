@@ -38,7 +38,7 @@ const checkout = () => {
       {productinfos.length && productinfos.map(productinfo => (
         <div className='flex mb-5'>
           <div className='bg-gray-100 p-3 rounded-xl'>
-            <img src={productinfo.picture} alt="" className='w-24' />
+            <img src={productinfo.picture} alt="" className='w-24 ' />
           </div>
           <div><h3 className='font-bold text-lg'>{productinfo.name}</h3>
             <p className='text-sm leading-4 w-1/2 text-gray-500'>{productinfo.description}</p>
@@ -57,14 +57,36 @@ const checkout = () => {
           </div>
         </div>
       ))}
+      <section>
+        <h1 className='font-bold text-center my-4 '>Shipping Details</h1>
+        <div className='flex flex-col mt-4'>
+          <input value={name} onChange={e => setName(e.target.value)} className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' type="text" placeholder='Name' />
+          <input value={street} onChange={e => setStreet(e.target.value)} className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' type="text" placeholder='House No/Flat No/Building No' />
+          <input value={city} onChange={e => setCity(e.target.value)} className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' type="text" placeholder='City/District ' />
+          <input value={pincode} className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' onChange={e => setPincode(e.target.value)} type="text" placeholder='PinCode ' />
+          <input value={email} className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' onChange={e => setEmail(e.target.value)} type="email" placeholder='Email Address' required />
+        </div>
+        <div className='mt-4'>
+          <div className='flex my-2'>
 
-      <div className='flex flex-col'>
-        <input value={name} onChange={e => setName(e.target.value)} className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' type="text" placeholder='Name' />
-        <input value={street}  onChange={e => setStreet(e.target.value)} className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' type="text" placeholder='House No/Flat No/Building No' />
-        <input value={city}  onChange={e => setCity(e.target.value)} className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' type="text" placeholder='City/District ' />
-        <input  value={pincode} className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2'  onChange={e => setPincode(e.target.value)} type="text" placeholder='PinCode ' />
-        <input value={email} className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2'  onChange={e => setEmail(e.target.value)} type="email" placeholder='Email Address' required />
-      </div>
+
+            <h3 className='grow font-bold text-gray-500'>Subtotal:</h3>
+            <h3>$125</h3>
+          </div>
+          <div className='flex'>
+
+
+            <h3 className='grow font-bold text-gray-500'>Delivery:</h3>
+            <h3>$125</h3>
+          </div>
+          <div className='flex my-2'>
+
+
+            <h3 className='grow font-bold text-gray-500 border-t-2 border-dashed border-emerald-500 pt-3'>Total:</h3>
+            <h3 className='font-bold'>$125</h3>
+          </div>
+        </div>
+      </section>
 
 
     </Layout>
