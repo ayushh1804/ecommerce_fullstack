@@ -44,7 +44,9 @@ const checkout = () => {
         <div>Your Cart is Empty</div>
       )}
       {productinfos.length && productinfos.map(productinfo => (
+        
         <div className='flex mb-5' key={productinfo}>
+         
           <div className='bg-gray-100 p-3 rounded-xl'>
             <img src={productinfo.picture} alt="" className='w-24 ' />
           </div>
