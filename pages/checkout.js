@@ -32,19 +32,19 @@ const checkout = () => {
   let subtotal = 0;
   if (selectedProducts?.length) {
     for (let id of selectedProducts) {
-      const price = productinfos.find(p => p._id === id)?.price || 0;
+      const price = productinfos.find(p => p._id === id)?.price ;
       subtotal += price;
     }
   }
   const delivery = 5;
-  const total = subtotal + Number(delivery);
+  const total = Number(subtotal) + Number(delivery);
   return (
     <Layout>
       {!productinfos.length && (
         <div>Your Cart is Empty</div>
       )}
       {productinfos.length && productinfos.map(productinfo => (
-        <div className='flex mb-5'>
+        <div className='flex mb-5' key={productinfo}>
           <div className='bg-gray-100 p-3 rounded-xl'>
             <img src={productinfo.picture} alt="" className='w-24 ' />
           </div>
@@ -94,6 +94,7 @@ const checkout = () => {
             <h3 className='font-bold'>${total}</h3>
           </div>
         </div>
+        <button className='bg-emerald-500 text-white my-2 shadow-emerald-300 shadow-lg px-5 py-2 rounded-xl w-full font-bold '>PAY ${total}</button>
       </section>
 
 
