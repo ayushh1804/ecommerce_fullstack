@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
 import Layout from '@/components/Layout'
 import { ProductsContext } from '@/components/ProductsContext'
+import React, { useContext, useEffect, useState } from 'react'
 const checkout = () => {
   const [name, setName] = useState('')
   const [street, setStreet] = useState('')
@@ -17,7 +17,7 @@ const checkout = () => {
   }, [selectedProducts]);
 
   const addProduct = (id) => {
-    setProductInfos(prev => [...prev, id])
+    setSelectedProducts(prev => [...prev, id])
   }
   const removeProduct = (id) => {
     const pos = selectedProducts.indexOf(id);
@@ -28,8 +28,16 @@ const checkout = () => {
       });
     }
   }
-
-
+ 
+  let subtotal = 0;
+  if (selectedProducts?.length) {
+    for (let id of selectedProducts) {
+      const price = productinfos.find(p => p._id === id)?.price || 0;
+      subtotal += price;
+    }
+  }
+  const delivery = 5;
+  const total = subtotal + Number(delivery);
   return (
     <Layout>
       {!productinfos.length && (
@@ -71,19 +79,19 @@ const checkout = () => {
 
 
             <h3 className='grow font-bold text-gray-500'>Subtotal:</h3>
-            <h3>$125</h3>
+            <h3>${subtotal}</h3>
           </div>
           <div className='flex'>
 
 
             <h3 className='grow font-bold text-gray-500'>Delivery:</h3>
-            <h3>$125</h3>
+            <h3>{delivery} </h3>
           </div>
           <div className='flex my-2'>
 
 
             <h3 className='grow font-bold text-gray-500 border-t-2 border-dashed border-emerald-500 pt-3'>Total:</h3>
-            <h3 className='font-bold'>$125</h3>
+            <h3 className='font-bold'>${total}</h3>
           </div>
         </div>
       </section>
