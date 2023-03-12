@@ -54,9 +54,15 @@ const removeProduct = (id) => {
         </div>
       ))}
 
+<div className='flex flex-col'>
+<input className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' type="text" placeholder='Name' />
+  <input className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' type="text" placeholder='House No/Flat No/Building No' />
+  <input className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' type="text" placeholder='City/District ' />
+  <input className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' type="text" placeholder='PinCode ' />
+  <input className='bg-gray-100 w-full rounded-lg px-4 py-2 mb-2' type="email" placeholder='Email Address' required />
+</div>
 
 
-      
     </Layout>
   )
 }
